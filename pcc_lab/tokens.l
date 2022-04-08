@@ -1,3 +1,4 @@
+
 %%
 "if" |
 "else" |
@@ -36,7 +37,8 @@
 [< >][=]? |
 [!=][=] {printf("%s is a relational operator\n",yytext);}
 [&][&]|[|][|]|[!] {printf("%s is a logical operator\n",yytext);}
-[&][~][|][^][<<][>>] {printf("%s is a bitwise operator\n",yytext);}
+[<][<]|[>][>]|[&] |
+[| ~ ^]  {printf("%s is a bitwise operator\n",yytext);}
 [,] {printf("%s is a seperator\n",yytext);}
 [;] {printf("%s is a terminator\n",yytext);}
 [()] {printf("%s is a braces\n",yytext);}
@@ -62,4 +64,3 @@ int main()
 yylex();
 return 0;
 }
-
